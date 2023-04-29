@@ -1,5 +1,8 @@
 name: pipe_testing
 
+env:
+  CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
+
 on: 
   pull_request:
     branches: [ "main" ]
