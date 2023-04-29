@@ -1,4 +1,4 @@
-name: conti_deliv
+name: pipe_testing
 
 on: 
   pull_request:
