@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres  # Name of the service.
+  name: postgres_sql  # Name of the service.
   labels:
     app: postgres  # Label to identify this service.
 spec:
@@ -19,8 +19,8 @@ kind: StatefulSet
 metadata:
   name: postgres  # Name of the StatefulSet.
 spec:
-  serviceName: postgres  # The name of the headless service this StatefulSet is governed by.
-  replicas: 1  # Number of Pods to run.
+  serviceName: postgres_sql  # The name of the headless service this StatefulSet is governed by.
+  replicas: 3  # Number of Pods to run.
   selector:
     matchLabels:
       app: postgres  # Label selector for Pods in the StatefulSet.

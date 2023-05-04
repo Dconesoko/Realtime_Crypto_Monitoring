@@ -8,7 +8,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: balanced
-  gcePersistentDisk:
-    pdName: jupyter
-    fsType: ext4
+  storageClassName: standard
