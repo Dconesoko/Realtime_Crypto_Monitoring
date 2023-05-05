@@ -1,4 +1,4 @@
-.PHONY: run build up down clean
+.PHONY: run build up down clean start
 
 run:
 	@python table_creation.py
@@ -40,3 +40,20 @@ type:
 	docker exec ${CONTAINER_NAME} python -m mypy --ignore-missing-imports .
 
 start_integration: isort format type lint
+
+################################################################################
+
+# Infrastucture setup with terraform
+
+start:
+	cd Terraform && terraform apply -auto-approve
+
+get_context:
+	gcloud container clusters get-credentials realtime-cryto
+
+stop:
+	terraform destroy -auto-approve
+
+# Deploy the application to Kubernetes
+deploy:
+	kubectl apply -f k8s/postgres/postgres-{sc,pvc,secret,statefulset}.yaml

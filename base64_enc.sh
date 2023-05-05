@@ -11,6 +11,6 @@ cat .env | while IFS= read -r line; do
   encoded_value=$(echo "$value" | base64)
 
   # Add the key and encoded value to the secret.yaml file
-  echo "  $key: $encoded_value" >> ./k8s/postgres/secrets.yaml
+  echo "  $key: $encoded_value" >> ./k8s/postgres/postgres-secret.yaml
 
 done
