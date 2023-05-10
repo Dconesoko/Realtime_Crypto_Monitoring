@@ -1,4 +1,4 @@
-.PHONY: run build up down clean start
+.PHONY: run build up down clean start stop
 
 run:
 	@python table_creation.py
@@ -49,11 +49,17 @@ start:
 	cd Terraform && terraform apply -auto-approve
 
 get_context:
-	gcloud container clusters get-credentials realtime-cryto
+	gcloud container clusters get-credentials realtime-crypto
+
+up_ready: start get_context
+
 
 stop:
 	terraform destroy -auto-approve
 
 # Deploy the application to Kubernetes
 deploy:
-	kubectl apply -f k8s/postgres/postgres-{sc,pvc,secret,statefulset}.yaml
+	kubectl apply -f k8s/postgres/postgres-sc.yaml
+	kubectl apply -f k8s/postgres/postgres-pvc.yaml
+	kubectl apply -f k8s/postgres/postgres-secret.yaml
+	kubectl apply -f k8s/postgres/postgres-statefulset.yaml
