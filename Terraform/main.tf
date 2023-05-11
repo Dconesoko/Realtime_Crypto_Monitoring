@@ -8,7 +8,7 @@ resource "google_container_cluster" "primary" {
   name     = "realtime-crypto"
   location = "us-central1-a"
 
-  initial_node_count = 3
+  initial_node_count = 2
 
   node_config {
     preemptible  = true
