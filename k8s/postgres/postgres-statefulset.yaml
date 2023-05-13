@@ -18,7 +18,7 @@ metadata:
   name: postgres
 spec:
   serviceName: postgres-sql
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: postgres
@@ -54,4 +54,38 @@ spec:
       - name: postgres-data
         persistentVolumeClaim:
           claimName: postgres-pvc
-  
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-job
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-job
+  template:
+    metadata:
+      labels:
+        app: data-job
+    spec:
+      containers:
+      - name: data-job
+        image: pipeline_make
+        env:
+        - name: WAREHOUSE_USER
+          value: ${POSTGRES_USER}
+        - name: WAREHOUSE_PASSWORD
+          value: ${POSTGRES_PASSWORD}
+        - name: WAREHOUSE_DB
+          value: ${POSTGRES_DB}
+        - name: WAREHOUSE_HOST
+          value: warehouse
+        - name: WARREHOUSE_PORT
+          value: ${POSTGRES_PORT}
+        - name: CONTAINER_NAME
+          value: ${CONTAINER_NAME}
+        volumeMounts:
+        - name: code
+          mountPath: /code
