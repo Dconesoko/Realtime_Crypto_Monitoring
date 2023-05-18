@@ -7,7 +7,7 @@ on:
     branches: [ "dev" ]
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  PROJECT_ID: '${{ secrets.GKE_PROJECT }}'
   GAR_LOCATION: us-central1 # TODO: update region of the Artifact Registry
   GKE_CLUSTER: cluster-1    # TODO: update to cluster name
   GKE_ZONE: us-central1-c   # TODO: update to cluster zone
@@ -38,9 +38,9 @@ jobs:
     #     workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
     #     service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
 
-    # Alternative option - authentication via credentials json
+#    Alternative option - authentication via credentials json
     - id: 'auth'
-      uses: 'google-github-actions/auth@v0'
+      uses: 'google-github-actions/auth@v1'
       with:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
@@ -79,3 +79,4 @@ jobs:
     #     ./kustomize build . | kubectl apply -f -
     #     kubectl rollout status deployment/$DEPLOYMENT_NAME
     #     kubectl get services -o wide
+
