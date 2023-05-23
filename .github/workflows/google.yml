@@ -40,7 +40,7 @@ jobs:
 
 #    Alternative option - authentication via credentials json
     - id: 'auth'
-      uses: 'google-github-actions/auth@v0.4.0'
+      uses: 'google-github-actions/auth@v3'
       with:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
