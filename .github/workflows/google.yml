@@ -35,7 +35,7 @@ jobs:
       uses: 'google-github-actions/auth@v0'
       with:
         token_format: 'access_token'
-        workload_identity_provider: 'https://iam.googleapis.com/projects/495519031654/locations/global/workloadIdentityPools/de-pool/providers/github'
+        workload_identity_provider: 'projects/495519031654/locations/global/workloadIdentityPools/de-pool/providers/github'
         service_account: 'github-actions@silver-rain-325220.iam.gserviceaccount.com'
 
 # #    Alternative option - authentication via credentials json
