@@ -27,22 +27,22 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: 'actions/checkout@v3'
 
-    # # Configure Workload Identity Federation and generate an access token.
-    # - id: 'auth'
-    #   name: 'Authenticate to Google Cloud'
-    #   uses: 'google-github-actions/auth@v0'
-    #   with:
-    #     token_format: 'access_token'
-    #     workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-    #     service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
-
-#    Alternative option - authentication via credentials json
+    # Configure Workload Identity Federation and generate an access token.
     - id: 'auth'
-      uses: 'google-github-actions/auth@v3'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
       with:
-        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+        token_format: 'access_token'
+        workload_identity_provider: 'projects/495519031654/locations/global/workloadIdentityPools/de-pool'
+        service_account: 'github-actions@silver-rain-325220.iam.gserviceaccount.com'
+
+# #    Alternative option - authentication via credentials json
+#     - id: 'auth'
+#       uses: 'google-github-actions/auth@v1'
+#       with:
+#         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
     - name: Print access token
       run: echo "${{ steps.auth.outputs.access_token }}"
