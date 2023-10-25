@@ -1,5 +1,5 @@
-.env
-pipe_infra/secrets
-.wh_env
 service_key.json
+.wh_env
+pipe_infra/secrets
+.env
 

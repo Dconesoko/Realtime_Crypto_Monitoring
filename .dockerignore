@@ -1,0 +1,15 @@
+
+.git
+Dockerfile
+.gitignore
+build_teardown
+.github
+.ipynb_checkpoints
+Terraform
+pics
+.vscode
+.DS_Store
+README.md
+k8s
+terraform.tfsate
+

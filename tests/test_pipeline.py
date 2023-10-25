@@ -1,8 +1,11 @@
 import sys
+import logging
 
 sys.path.append("/home/nanabediako/Desktop/Data Engineering/pipe_infra/src")
 
+logger = logging.getLogger("pentecost")
 
+logger.name
 import datetime
 import os
 import typing as typ

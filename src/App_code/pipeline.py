@@ -63,7 +63,6 @@ def run() -> None:
     data = get_exchange_data()
     for d in data:
         d["update_dt"] = get_utc_from_unix_time(d.get("updated"))
-
     run_data = get_warehouse_creds()
 
     with WarehouseConnection(run_data).managed_cursor() as curr:

@@ -13,6 +13,6 @@ def get_warehouse_creds() -> DBConnection:
         password=os.getenv("WAREHOUSE_PASSWORD")
         or os.getenv("POSTGRES_PASSWORD"),
         db=os.getenv("WAREHOUSE_DB") or os.getenv("POSTGRES_DB"),
-        host="warehouse",
+        host="localhost",
         port=int(os.getenv("WAREHOUSE_PORT", 5432)),
     )

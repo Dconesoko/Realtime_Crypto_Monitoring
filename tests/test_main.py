@@ -7,7 +7,6 @@ sys.path.append("/Users/bediako/Desktop/Data_engineering/pipe_infra/src")
 import datetime
 
 import psycopg2
-
 from App_code.pipeline import (
     _get_exchange_insert_query,
     get_exchange_data,
