@@ -34,3 +34,48 @@
 └── tree_output.txt
 
 9 directories, 24 files
+.
+├── Makefile
+├── README.md
+├── Terraform
+│   ├── main.tf
+│   ├── terraform.tfstate
+│   ├── terraform.tfstate.backup
+│   └── variable.tf
+├── base64_enc.sh
+├── container
+│   ├── Dockerfile
+│   └── requirements.txt
+├── docker-compose.yml
+├── k8s
+│   └── postgres
+│       ├── postgres-pv.yaml
+│       ├── postgres-pvc.yaml
+│       ├── postgres-sc.yaml
+│       ├── postgres-secret.yaml
+│       └── postgres-statefulset.yaml
+├── migrations
+│   ├── 01_create_schema.py
+│   ├── 02_create_table.py
+├── pics
+│   └── readme_pipeline.jpeg
+├── pyproject.toml
+├── scheduler
+│   └── pipeline_cron
+├── src
+│   └── App_code
+│       ├── __init__.py
+│       ├── coinbase.py
+│       ├── pipeline.py
+│       └── utils
+│           ├── __init__.py
+│           ├── config.py
+│           └── db.py
+├── table_creation.py
+├── terraform.tfstate
+├── tests
+│   ├── test_main.py
+│   └── test_pipeline.py
+└── tree_output.txt
+
+16 directories, 55 files
