@@ -61,13 +61,16 @@ def _get_exchange_insert_query() -> str:
 
 def run() -> None:
     data = get_exchange_data()
+    print(data)
+    scaff = []
     for d in data:
         d["update_dt"] = get_utc_from_unix_time(d.get("updated"))
-    run_data = get_warehouse_creds()
 
+    run_data = get_warehouse_creds()
     with WarehouseConnection(run_data).managed_cursor() as curr:
         p.execute_batch(curr, _get_exchange_insert_query(), data)
 
 
 if __name__ == "__main__":
-    run()
+    url = "https://api.coincap.io/v2/exchanges"
+    r = requests.get(url)

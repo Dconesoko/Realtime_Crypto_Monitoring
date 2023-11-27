@@ -14,6 +14,9 @@ class DBConnection:
     port: int = 5432
 
     def conn_url(self) -> str:
+        print(
+            f"postgresql://{self.user}:{self.password}@{self.host}:{self.port}/{self.db}"
+        )
         return (
             f"postgresql://{self.user}:{self.password}@"
             f"{self.host}:{self.port}/{self.db}"
